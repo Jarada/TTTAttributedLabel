@@ -30,7 +30,7 @@
 }
 
 @property (nonatomic, copy) NSString *summaryText;
-@property (nonatomic, retain) TTTAttributedLabel *summaryLabel;
+@property (nonatomic, strong) TTTAttributedLabel *summaryLabel;
 
 + (CGFloat)heightForCellWithText:(NSString *)text;
 

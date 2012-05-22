@@ -63,7 +63,7 @@ extern NSString * const kTTTStrikeOutAttributeName;
     CTFramesetterRef _framesetter;
     BOOL _needsFramesetter;
     
-    id _delegate;
+    id __unsafe_unretained _delegate;
     UIDataDetectorTypes _dataDetectorTypes;
     NSDataDetector *_dataDetector;
     NSArray *_links;
@@ -89,7 +89,7 @@ extern NSString * const kTTTStrikeOutAttributeName;
  
  @discussion A `TTTAttributedLabel` delegate responds to messages sent by tapping on links in the label. You can use the delegate to respond to links referencing a URL, address, phone number, date, or date with a specified time zone and duration.
  */
-@property (nonatomic, assign) id <TTTAttributedLabelDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id <TTTAttributedLabelDelegate> delegate;
 
 ///--------------------------------------------
 /// @name Detecting, Accessing, & Styling Links
@@ -105,14 +105,14 @@ extern NSString * const kTTTStrikeOutAttributeName;
 /**
  An array of `NSTextCheckingResult` objects for links detected or manually added to the label text.
  */
-@property (readonly, nonatomic, retain) NSArray *links;
+@property (readonly, nonatomic, strong) NSArray *links;
 
 /**
  A dictionary containing the `NSAttributedString` attributes to be applied to links detected or manually added to the label text. The default link style is blue and underlined.
  
  @warning You must specify `linkAttributes` before setting autodecting or manually-adding links for these attributes to be applied.
  */
-@property (nonatomic, retain) NSDictionary *linkAttributes;
+@property (nonatomic, strong) NSDictionary *linkAttributes;
 
 ///---------------------------------------
 /// @name Acccessing Text Style Attributes
