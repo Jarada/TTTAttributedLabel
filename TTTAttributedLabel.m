@@ -72,7 +72,7 @@ static inline NSDictionary * NSAttributedStringAttributesFromLabel(TTTAttributed
     NSMutableDictionary *mutableAttributes = [NSMutableDictionary dictionary]; 
     
     CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)label.font.fontName, label.font.pointSize, NULL);
-    [mutableAttributes setObject:(__bridge_transfer id)font forKey:(NSString *)kCTFontAttributeName];
+    [mutableAttributes setObject:(__bridge id)font forKey:(NSString *)kCTFontAttributeName];
     CFRelease(font);
     
     [mutableAttributes setObject:(id)[label.textColor CGColor] forKey:(NSString *)kCTForegroundColorAttributeName];
